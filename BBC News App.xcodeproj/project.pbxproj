@@ -59,7 +59,7 @@
 		6532CFA02344EBA90006B052 = {
 			isa = PBXGroup;
 			children = (
-				6532CFAB2344EBA90006B052 /* BBC News App */,
+				6532CFAB2344EBA90006B052 /* Source */,
 				6532CFC02344EBAA0006B052 /* BBC News AppTests */,
 				6532CFAA2344EBA90006B052 /* Products */,
 			);
@@ -74,17 +74,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6532CFAB2344EBA90006B052 /* BBC News App */ = {
+		6532CFAB2344EBA90006B052 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6532CFCC2344ED7E0006B052 /* Model */,
+				6532CFCD2344ED870006B052 /* View */,
+				6532CFCE2344ED8F0006B052 /* Controllers */,
 				6532CFAC2344EBAA0006B052 /* AppDelegate.swift */,
-				6532CFAE2344EBAA0006B052 /* ViewController.swift */,
-				6532CFB02344EBAA0006B052 /* Main.storyboard */,
 				6532CFB32344EBAA0006B052 /* Assets.xcassets */,
 				6532CFB52344EBAA0006B052 /* LaunchScreen.storyboard */,
 				6532CFB82344EBAA0006B052 /* Info.plist */,
 			);
-			name = "BBC News App";
 			path = Source;
 			sourceTree = "<group>";
 		};
@@ -95,6 +95,29 @@
 				6532CFC32344EBAA0006B052 /* Info.plist */,
 			);
 			path = "BBC News AppTests";
+			sourceTree = "<group>";
+		};
+		6532CFCC2344ED7E0006B052 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6532CFCD2344ED870006B052 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6532CFB02344EBAA0006B052 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6532CFCE2344ED8F0006B052 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6532CFAE2344EBAA0006B052 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
