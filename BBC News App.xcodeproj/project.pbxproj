@@ -13,6 +13,7 @@
 		6532CFB42344EBAA0006B052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6532CFB32344EBAA0006B052 /* Assets.xcassets */; };
 		6532CFB72344EBAA0006B052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6532CFB52344EBAA0006B052 /* LaunchScreen.storyboard */; };
 		6532CFC22344EBAA0006B052 /* BBC_News_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532CFC12344EBAA0006B052 /* BBC_News_AppTests.swift */; };
+		6532CFD02344EFDC0006B052 /* Headline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532CFCF2344EFDC0006B052 /* Headline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		6532CFBD2344EBAA0006B052 /* BBC News AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BBC News AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6532CFC12344EBAA0006B052 /* BBC_News_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_News_AppTests.swift; sourceTree = "<group>"; };
 		6532CFC32344EBAA0006B052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6532CFCF2344EFDC0006B052 /* Headline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headline.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		6532CFCC2344ED7E0006B052 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6532CFCF2344EFDC0006B052 /* Headline.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			files = (
 				6532CFAF2344EBAA0006B052 /* ViewController.swift in Sources */,
 				6532CFAD2344EBAA0006B052 /* AppDelegate.swift in Sources */,
+				6532CFD02344EFDC0006B052 /* Headline.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
