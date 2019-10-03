@@ -10,11 +10,21 @@ import Foundation
 
 // MARK: - Struct describing the 'Headline' model. Implements the Decodable protocol
 //
-struct Headline: Decodable {
+struct Headline: Decodable, CustomStringConvertible {
+
     // MARK: - vars
     var headline: String
     var updated: Date
     var introduction: String
+    
+    var formattedDate: String {
+        return Application.DateFormatters.defaultDateFormatter().string(from: updated)
+    }
+
+    // MARK: -
+    var description: String {
+        return "\(headline) : \(formattedDate)"
+    }
     
     // MARK: - initialiser
     public init(headline: String, updated: Date, introduction: String) {
