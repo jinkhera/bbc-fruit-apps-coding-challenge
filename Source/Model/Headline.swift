@@ -33,3 +33,16 @@ struct Headline: Decodable, CustomStringConvertible {
         self.introduction = introduction
     }
 }
+
+struct Headlines: Decodable {
+    let headlines : [Headline]
+    
+    enum CodingKeys: String, CodingKey {
+       case headlines
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        headlines = try container.decode([Headline].self, forKey: .headlines)
+    }
+}

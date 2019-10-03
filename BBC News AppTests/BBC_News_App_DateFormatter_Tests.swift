@@ -33,5 +33,4 @@ class BBC_News_App_DateFormatter_Tests: XCTestCase {
         print(result)
         XCTAssert(expected == result, "Test failed: tell me what you want")
     }
-    
 }
