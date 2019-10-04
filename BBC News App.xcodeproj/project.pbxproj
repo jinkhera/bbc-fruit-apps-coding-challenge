@@ -29,6 +29,7 @@
 		65747C1423478F5600377D6D /* HeadlinesDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C1323478F5600377D6D /* HeadlinesDatasource.swift */; };
 		65747C162347924300377D6D /* HeadlinesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */; };
 		65747C19234794E900377D6D /* UITableViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C18234794E900377D6D /* UITableViewController+Background.swift */; };
+		65B8909B2347A95400A299E6 /* DateFormatter+Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8909A2347A95400A299E6 /* DateFormatter+Formatters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		65747C1323478F5600377D6D /* HeadlinesDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesDatasource.swift; sourceTree = "<group>"; };
 		65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewDelegate.swift; sourceTree = "<group>"; };
 		65747C18234794E900377D6D /* UITableViewController+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Background.swift"; sourceTree = "<group>"; };
+		65B8909A2347A95400A299E6 /* DateFormatter+Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formatters.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +114,10 @@
 				6532CFCD2344ED870006B052 /* View */,
 				6532CFCE2344ED8F0006B052 /* Controllers */,
 				6532CFAC2344EBAA0006B052 /* AppDelegate.swift */,
+				6532CFD72344FB2C0006B052 /* Application.swift */,
 				6532CFB32344EBAA0006B052 /* Assets.xcassets */,
 				6532CFB52344EBAA0006B052 /* LaunchScreen.storyboard */,
 				6532CFB82344EBAA0006B052 /* Info.plist */,
-				6532CFD72344FB2C0006B052 /* Application.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				65747C18234794E900377D6D /* UITableViewController+Background.swift */,
+				65B8909A2347A95400A299E6 /* DateFormatter+Formatters.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				65747C19234794E900377D6D /* UITableViewController+Background.swift in Sources */,
 				6532CFD02344EFDC0006B052 /* Headline.swift in Sources */,
 				653C9BAB23463B070007B147 /* BBCNewsDecoder.swift in Sources */,
+				65B8909B2347A95400A299E6 /* DateFormatter+Formatters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

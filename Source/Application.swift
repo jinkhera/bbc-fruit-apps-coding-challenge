@@ -9,13 +9,7 @@
 import Foundation
 
 struct Application {
-    struct DateFormatters {
-        static func defaultDateFormatter() -> DateFormatter {
-            let df = DateFormatter()
-            df.dateFormat = "dd MMMM yyyy"
-            return df
-        }
-    }
+    
 }
 
 extension Application {

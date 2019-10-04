@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Struct describing the 'Headline' model. Implements the Decodable protocol
 //
-struct Headline: Decodable, CustomStringConvertible {
+struct Headline: CustomStringConvertible {
 
     // MARK: - vars
     var headline: String
@@ -18,7 +18,7 @@ struct Headline: Decodable, CustomStringConvertible {
     var introduction: String
     
     var formattedDate: String {
-        return Application.DateFormatters.defaultDateFormatter().string(from: updated)
+        return DateFormatter.ddMMMMyyyy.string(from: updated)
     }
 
     // MARK: -
@@ -31,6 +31,24 @@ struct Headline: Decodable, CustomStringConvertible {
         self.headline = headline
         self.updated = updated
         self.introduction = introduction
+    }
+}
+
+extension Headline: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case headline
+        case updated
+        case introduction
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        headline = try container.decode(String.self, forKey: .headline)
+        introduction = try container.decode(String.self, forKey: .introduction)
+        
+        let timeFromEpoch = try container.decode(TimeInterval.self, forKey: .updated)
+        let date = Date(timeIntervalSince1970: timeFromEpoch)
+        updated = date
     }
 }
 
