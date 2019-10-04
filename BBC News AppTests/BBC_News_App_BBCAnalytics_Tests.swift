@@ -24,8 +24,7 @@ class BBC_News_App_BBCAnalytics_Tests: XCTestCase {
     func testBBCAnalyticsToURL() {
         
         let property = EventProperty(name: "time", value: "\(123)")
-        let data = [property]
-        let event = BBCAnalyticsEvent(event: .load, metaData: data, date: Date())
+        let event = BBCAnalyticsEvent(event: .load, metaData: [property], date: Date())
         
         let baseURL = URL(string: Application.Configuration.baseURL(path: "analytics"))!
         
@@ -39,12 +38,10 @@ class BBC_News_App_BBCAnalytics_Tests: XCTestCase {
     func testUploadAnalytics() {
         // Create an expectation for a API call.
         let expectation = XCTestExpectation(description: "Upload analytics")
-        let property = EventProperty(name: "time", value: "\(123)")
-        let data = [property]
-        let event = BBCAnalyticsEvent(event: .load, metaData: data, date: Date())
-        
         BBCAnalytics.start()
-        BBCAnalyticsSessionManager.shared.queueEvent(event)
+        
+        let property = EventProperty(name: "time", value: "\(123)")
+        BBCAnalytics.trackEvent(event: .load, metaData: [property])
         
         let delay = 15.0
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {

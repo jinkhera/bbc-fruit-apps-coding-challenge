@@ -20,8 +20,15 @@ extension Networking {
             request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
+            let requestStartTime = Date()
             let session = URLSession(configuration: URLSessionConfiguration.default)
             let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+                let timeTakenForRequest = Date().timeIntervalSince(requestStartTime)
+                let ms = timeTakenForRequest * 1000
+                
+                let property = EventProperty(name: "time", value: "\(ms)")
+                BBCAnalytics.trackEvent(event: .load, metaData: [property])
+                
                 let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 200
                 
                 if statusCode != 200 {

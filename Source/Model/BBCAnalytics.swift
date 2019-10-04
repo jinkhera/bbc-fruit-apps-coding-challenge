@@ -9,7 +9,8 @@
 import Foundation
 
 struct BBCAnalytics {
-    static func trackEvent(event: BBCAnalyticsEvent) {
+    static func trackEvent(event: EventType, metaData: [EventProperty]) {
+        let event = BBCAnalyticsEvent(event: event, metaData: metaData, date: Date())
         BBCAnalyticsSessionManager.shared.queueEvent(event)
     }
     
@@ -165,29 +166,22 @@ class PushAnalyticsOperation : Operation {
     }
     
     override func start() {
-        /*
-         if the operation or queue got cancelled even
-         before the operation has started, set the
-         operation state to finished and return
-         */
+
         if(self.isCancelled) {
             state = .finished
             return
         }
-        
-        // set the state to executing
+
         state = .executing
         
         print("uploading \(self.task.originalRequest?.url?.absoluteString ?? "")")
         
-        // start the downloading
         self.task.resume()
     }
     
     override func cancel() {
         super.cancel()
-        
-        // cancel the downloading
+
         self.task.cancel()
     }
 }
