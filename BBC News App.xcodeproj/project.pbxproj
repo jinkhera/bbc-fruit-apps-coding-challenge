@@ -26,6 +26,9 @@
 		653C9BAF23464E340007B147 /* BBC_News_App_BBCNewsAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C9BAE23464E340007B147 /* BBC_News_App_BBCNewsAPI_Tests.swift */; };
 		65747C0E23477E4900377D6D /* BBC_News_App_BBCAnalytics_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C0D23477E4900377D6D /* BBC_News_App_BBCAnalytics_Tests.swift */; };
 		65747C1023478D9B00377D6D /* HeadlinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C0F23478D9B00377D6D /* HeadlinesTableViewController.swift */; };
+		65747C1423478F5600377D6D /* HeadlinesDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C1323478F5600377D6D /* HeadlinesDatasource.swift */; };
+		65747C162347924300377D6D /* HeadlinesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */; };
+		65747C19234794E900377D6D /* UITableViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C18234794E900377D6D /* UITableViewController+Background.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		653C9BAE23464E340007B147 /* BBC_News_App_BBCNewsAPI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_News_App_BBCNewsAPI_Tests.swift; sourceTree = "<group>"; };
 		65747C0D23477E4900377D6D /* BBC_News_App_BBCAnalytics_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_News_App_BBCAnalytics_Tests.swift; sourceTree = "<group>"; };
 		65747C0F23478D9B00377D6D /* HeadlinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewController.swift; sourceTree = "<group>"; };
+		65747C1323478F5600377D6D /* HeadlinesDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesDatasource.swift; sourceTree = "<group>"; };
+		65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewDelegate.swift; sourceTree = "<group>"; };
+		65747C18234794E900377D6D /* UITableViewController+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Background.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 		6532CFCC2344ED7E0006B052 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65747C17234794C200377D6D /* Extensions */,
 				65747C1123478ED000377D6D /* Datasources */,
 				653C9BA923463AF50007B147 /* Decoders */,
 				653C9BA8234639DE0007B147 /* LocalStorage */,
@@ -193,8 +200,18 @@
 		65747C1123478ED000377D6D /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
+				65747C1323478F5600377D6D /* HeadlinesDatasource.swift */,
+				65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */,
 			);
 			path = Datasources;
+			sourceTree = "<group>";
+		};
+		65747C17234794C200377D6D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				65747C18234794E900377D6D /* UITableViewController+Background.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +324,10 @@
 				653C9BA523462B950007B147 /* Networking.swift in Sources */,
 				65747C1023478D9B00377D6D /* HeadlinesTableViewController.swift in Sources */,
 				653C9BA2234628B70007B147 /* BBCNewsAPI.swift in Sources */,
+				65747C1423478F5600377D6D /* HeadlinesDatasource.swift in Sources */,
+				65747C162347924300377D6D /* HeadlinesTableViewDelegate.swift in Sources */,
 				6532CFAD2344EBAA0006B052 /* AppDelegate.swift in Sources */,
+				65747C19234794E900377D6D /* UITableViewController+Background.swift in Sources */,
 				6532CFD02344EFDC0006B052 /* Headline.swift in Sources */,
 				653C9BAB23463B070007B147 /* BBCNewsDecoder.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--BBC Headlines-->
         <scene sceneID="yJm-Jw-gWv">
             <objects>
                 <tableViewController id="bkZ-U5-Lxj" customClass="HeadlinesTableViewController" customModule="BBC_News_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,14 +25,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WUj-By-IPi">
-                                            <rect key="frame" x="16" y="5" width="33" height="21"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fir-Qu-SCs">
-                                            <rect key="frame" x="16" y="26" width="44" height="14"/>
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="bkZ-U5-Lxj" id="AjB-of-WtL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="kfd-Q3-m9C"/>
+                    <navigationItem key="navigationItem" title="BBC Headlines" id="kfd-Q3-m9C"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rb1-3B-Js3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

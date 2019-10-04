@@ -10,77 +10,23 @@ import UIKit
 
 class HeadlinesTableViewController: UITableViewController {
 
+    // MARK: - vars
+    var datasource: HeadlinesDatasource?
+    var delegate: HeadlinesTableViewDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        datasource = HeadlinesDatasource(tableView: self.tableView, headlines: [Headline]())
+        delegate = HeadlinesTableViewDelegate(tableView: self.tableView, headlines: [Headline]())
+        
+        refresh()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation
@@ -91,5 +37,35 @@ class HeadlinesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    
+    // MARK: - load headlines
+    private func refresh() {
+        loadHeadlines()
+    }
+    
+    private func loadHeadlines() {
+//        self.asynTaskActive = true
+//        self.showActivityIndicator()
+        
+        let message = NSLocalizedString("Checking for news headlines", comment: "Checking for news headlines")
+        self.setBackgroundMessage(message)
+        self.tableView.reloadData()
+        
+        BBCNews.loadHeadlines { (headlines, error) in
+            // because it's the UI thread the GODS insist to do unto the main thread, meh
+            DispatchQueue.main.async {
+                if error != nil {
+                    let message = NSLocalizedString("BBC News has no news today", comment: "BBC News has no news today")
+                    self.setBackgroundMessage(message)
+                }
+                else  {
+                    self.datasource?.update(headlines: (headlines?.headlines)!)
+                    self.tableView.reloadData()
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
