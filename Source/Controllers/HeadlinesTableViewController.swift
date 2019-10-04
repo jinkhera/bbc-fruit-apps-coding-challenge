@@ -8,14 +8,20 @@
 
 import UIKit
 
-class HeadlinesTableViewController: UITableViewController {
-
+class HeadlinesTableViewController: UITableViewController, HeadlinesTableViewControllerDelegate {
+    // MARK: - Types
+    
+    struct SegueIdentifiers {
+        static let showHeadlineDetails = "showHeadlineDetailsSegue"
+    }
+    
     // MARK: - vars
     var datasource: HeadlinesDatasource?
     var delegate: HeadlinesTableViewDelegate?
     
     lazy var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
+    // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +29,7 @@ class HeadlinesTableViewController: UITableViewController {
         
         datasource = HeadlinesDatasource(tableView: self.tableView, headlines: [Headline]())
         delegate = HeadlinesTableViewDelegate(tableView: self.tableView, headlines: [Headline]())
+        delegate?.delegate = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
@@ -40,15 +47,28 @@ class HeadlinesTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case SegueIdentifiers.showHeadlineDetails:
+            if let destination = segue.intendedDestinationViewController as? HeadlineDetailsViewController {
+                if let headline = sender as? Headline {
+                    destination.headline = headline
+                }
+            }
+        default:
+            return
+        }
     }
-    */
     
     // MARK: - show/hide activity indicators
     /// Hides activity indicator.
@@ -92,11 +112,17 @@ class HeadlinesTableViewController: UITableViewController {
                 }
                 else  {
                     self.datasource?.update(headlines: (headlines?.headlines)!)
+                    self.delegate?.update(headlines: (headlines?.headlines)!)
                     self.tableView.reloadData()
                 }
                 self.hideActivityIndicator()
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    // MARK: - HeadlinesTableViewControllerDelegate
+    func didSelectHeadline(_ headineline: Headline, atIndex index: IndexPath) {
+        self.performSegue(withIdentifier: SegueIdentifiers.showHeadlineDetails, sender: headineline)
     }
 }

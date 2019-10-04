@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,10 +53,47 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="6eE-W9-jcv">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
+                    <connections>
+                        <segue destination="mNw-Np-qFW" kind="show" identifier="showHeadlineDetailsSegue" id="JXJ-T6-ccP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rb1-3B-Js3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-60" y="213"/>
+        </scene>
+        <!--Headline Details View Controller-->
+        <scene sceneID="D7C-kF-SmN">
+            <objects>
+                <viewController id="mNw-Np-qFW" customClass="HeadlineDetailsViewController" customModule="BBC_News_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qKF-tB-rmH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LY2-IB-3Hh">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" name="Text Introductory"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LY2-IB-3Hh" firstAttribute="top" secondItem="Q6q-j1-vek" secondAttribute="top" id="1Gh-AF-AXK"/>
+                            <constraint firstItem="LY2-IB-3Hh" firstAttribute="bottom" secondItem="Q6q-j1-vek" secondAttribute="bottom" id="XYd-Mr-ggF"/>
+                            <constraint firstItem="Q6q-j1-vek" firstAttribute="trailing" secondItem="LY2-IB-3Hh" secondAttribute="trailing" constant="16" id="a64-77-51Y"/>
+                            <constraint firstItem="LY2-IB-3Hh" firstAttribute="leading" secondItem="Q6q-j1-vek" secondAttribute="leading" constant="16" id="gS9-mD-zUk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q6q-j1-vek"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="LY2-IB-3Hh" id="r8x-u1-kQZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="onV-GV-REe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="212.74362818590706"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iOO-BE-6FF">
@@ -76,6 +114,9 @@
     </scenes>
     <resources>
         <namedColor name="Text Headine">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text Introductory">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text Last Updated">
