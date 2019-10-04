@@ -20,7 +20,10 @@ class HeadlineDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        textView.text = headline?.introduction
+        let title = (self.headline?.headline)!
+        let introduction = (self.headline?.introduction)!
+        textView.text = "\(title) \n\n\(introduction)"
+        navigationItem.title = headline?.formattedDate
     }
     
     override func viewDidAppear(_ animated: Bool) {
