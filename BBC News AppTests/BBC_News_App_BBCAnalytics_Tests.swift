@@ -1,15 +1,15 @@
 //
-//  BBC_News_App_BBCNewsAPI_Tests.swift
+//  BBC_News_App_BBCAnalytics_Tests.swift
 //  BBC News AppTests
 //
-//  Created by Jatinder Pal Singh Khera on 03/10/2019.
+//  Created by Jatinder Pal Singh Khera on 04/10/2019.
 //  Copyright © 2019 Jatinder Pal Singh Khera. All rights reserved.
 //
 
 import XCTest
 @testable import BBC_News_App
 
-class BBC_News_App_BBCNewsAPI_Tests: XCTestCase {
+class BBC_News_App_BBCAnalytics_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,15 +21,11 @@ class BBC_News_App_BBCNewsAPI_Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testDownloadHeadlines() {
+    func testUploadAnalytics() {
         // Create an expectation for a API call.
-        let expectation = XCTestExpectation(description: "Fetch headlines")
+        let expectation = XCTestExpectation(description: "Upload analytics")
         
-        let property = EventProperty()
-        property.name = "time"
-        property.vale = 123
-        let data = [property]
-        let event = BBCAnalyticsEvent(event: .load, metaData: data, date: Date())
+        BBCAnalyticsSessionManager.shared.
         
         BBCNews.loadHeadlines { (headlines, error) in
             if error != nil {
@@ -45,4 +41,5 @@ class BBC_News_App_BBCNewsAPI_Tests: XCTestCase {
         // Wait until the expectation is fulfilled, with a timeout of 10 seconds.
         wait(for: [expectation], timeout: 10.0)
     }
+    
 }

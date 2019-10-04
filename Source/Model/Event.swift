@@ -8,18 +8,30 @@
 
 import Foundation
 
-// MARK: - Struct describing the 'Event' model. Implements the Codable protocol
+enum EventType: String {
+    case load = "load"
+    case display = "display"
+}
+
+typealias EventProperty = (name: String, value: Any)
+
+// MARK: - Struct describing the 'Event' protocol
 //
 protocol Event {
+    var event: EventType { get set }
+    var metaData: [EventProperty] { get set }
+    var date: Date { get set}
+}
+
+struct BBCAnalyticsEvent: Event, Equatable {
+    
     // MARK: - vars
-    var event: String { get set }
-}
-
-struct NetworkEvent: Event {
-    var event: String
-
-}
-
-struct ActionEvent: Event {
-    var event: String
+    var event: EventType
+    var metaData: [EventProperty]
+    var date: Date
+    
+    // conform to Equatable
+    static func ==(lhs: BBCAnalyticsEvent, rhs: BBCAnalyticsEvent) -> Bool {
+        return lhs.event == rhs.event && lhs.date == rhs.date
+    }
 }
