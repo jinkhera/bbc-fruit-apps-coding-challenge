@@ -15,13 +15,24 @@ struct Networking {
 // MARK: - HTTP/HTTPS using NSURLsession
 extension Networking {
     struct HTTP {
+        
+        static var session: URLSession {
+            let config = URLSessionConfiguration.default
+            config.requestCachePolicy = .reloadIgnoringLocalCacheData
+            config.urlCache = nil
+            
+            let session = URLSession.init(configuration: config)
+            return session
+        }
+        
         static func request(url: URL, _ completion: @escaping (_ data: Data?, _ error: APIError?) -> ()) {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
             let requestStartTime = Date()
-            let session = URLSession(configuration: URLSessionConfiguration.default)
+            
+            
             let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 let timeTakenForRequest = Date().timeIntervalSince(requestStartTime)
                 let ms = timeTakenForRequest * 1000
