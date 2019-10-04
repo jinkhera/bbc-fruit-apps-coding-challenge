@@ -174,7 +174,7 @@ class PushAnalyticsOperation : Operation {
 
         state = .executing
         
-        print("uploading \(self.task.originalRequest?.url?.absoluteString ?? "")")
+        print("Logged event \(self.task.originalRequest?.url?.absoluteString ?? "")")
         
         self.task.resume()
     }

@@ -29,6 +29,11 @@ class HeadlinesTableViewController: UITableViewController {
         
         refresh()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let property = EventProperty(name: "display", value: "Headlines")
+        BBCAnalytics.trackEvent(event: .display, metaData: [property])
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
