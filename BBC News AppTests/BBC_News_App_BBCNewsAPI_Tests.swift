@@ -25,18 +25,12 @@ class BBC_News_App_BBCNewsAPI_Tests: XCTestCase {
         // Create an expectation for a API call.
         let expectation = XCTestExpectation(description: "Fetch headlines")
         
-        let property = EventProperty()
-        property.name = "time"
-        property.vale = 123
-        let data = [property]
-        let event = BBCAnalyticsEvent(event: .load, metaData: data, date: Date())
-        
         BBCNews.loadHeadlines { (headlines, error) in
             if error != nil {
                 XCTFail(error!.localizedDescription)
             }
             else  {
-                print(headlines)
+//                print(headlines)
             }
             // Fulfill the expectation to indicate that the background task has finished successfully.
             expectation.fulfill()

@@ -21,25 +21,39 @@ class BBC_News_App_BBCAnalytics_Tests: XCTestCase {
         super.tearDown()
     }
     
+    func testBBCAnalyticsToURL() {
+        
+        let property = EventProperty(name: "time", value: "\(123)")
+        let data = [property]
+        let event = BBCAnalyticsEvent(event: .load, metaData: data, date: Date())
+        
+        let baseURL = URL(string: Application.Configuration.baseURL(path: "analytics"))!
+        
+        let url = event.url(baseURL: baseURL)
+        let result = url?.absoluteString
+        let expected = "https://raw.githubusercontent.com/bbc/news-apps-coding-challenge/master/analytics?event=load&time=123"
+        
+        XCTAssert(expected == result, "Test failed: tell me what you want")
+    }
+    
     func testUploadAnalytics() {
         // Create an expectation for a API call.
         let expectation = XCTestExpectation(description: "Upload analytics")
+        let property = EventProperty(name: "time", value: "\(123)")
+        let data = [property]
+        let event = BBCAnalyticsEvent(event: .load, metaData: data, date: Date())
         
-        BBCAnalyticsSessionManager.shared.
+        BBCAnalytics.start()
+        BBCAnalyticsSessionManager.shared.queueEvent(event)
         
-        BBCNews.loadHeadlines { (headlines, error) in
-            if error != nil {
-                XCTFail(error!.localizedDescription)
-            }
-            else  {
-                print(headlines)
-            }
+        let delay = 15.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             // Fulfill the expectation to indicate that the background task has finished successfully.
             expectation.fulfill()
         }
         
-        // Wait until the expectation is fulfilled, with a timeout of 10 seconds.
-        wait(for: [expectation], timeout: 10.0)
+        // Wait until the expectation is fulfilled, with a timeout of 20 seconds.
+        wait(for: [expectation], timeout: 20.0)
     }
     
 }

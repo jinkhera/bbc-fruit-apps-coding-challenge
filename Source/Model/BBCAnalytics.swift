@@ -12,26 +12,30 @@ struct BBCAnalytics {
     static func trackEvent(event: BBCAnalyticsEvent) {
         BBCAnalyticsSessionManager.shared.queueEvent(event)
     }
+    
+    static func start() {
+        BBCAnalyticsSessionManager.shared.start()
+    }
 }
 
-final class BBCAnalyticsSessionManager {
+class BBCAnalyticsSessionManager {
     
     // MARK: - vars
-    static let shared = BBCAnalyticsSessionManager(baseURL: URL(string: Application.Configuration.baseURL(path: "analytics"))!)
+    static let shared = BBCAnalyticsSessionManager()
     
-    private let baseURL: URL
+    private let baseURL: URL!
     
-    private let backgroundSession = URLSession(configuration: .background(withIdentifier: "uk.co.bbc.background.session.analytics"))
+    private let urlSession = URLSession(configuration: .default)
     
     // MARK: - Operation queue to help batch upload data
-    let operationQueue = OperationQueue()
+    private let operationQueue = OperationQueue()
     private var queue = Queue<BBCAnalyticsEvent>()
     
-    let timer = Timer.scheduledTimer(timeInterval: 10.0, target: BBCAnalyticsSessionManager.shared, selector: #selector(executeSync), userInfo: nil, repeats: true)
+    private var timer: Timer?
     
     // MARK: - Initialisation
-    private init(baseURL: URL) {
-        self.baseURL = baseURL
+    private init() {
+        self.baseURL = URL(string: Application.Configuration.baseURL(path: "analytics"))!
         operationQueue.maxConcurrentOperationCount = 1
     }
     
@@ -45,11 +49,13 @@ final class BBCAnalyticsSessionManager {
     }
     
     func stop() {
-        self.timer.invalidate()
+        self.timer?.invalidate()
     }
     
     func start() {
-        // TODO: implement
+        if timer == nil {
+            self.timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(executeSync), userInfo: nil, repeats: true)
+        }
     }
     
     func resume() {
@@ -67,17 +73,11 @@ final class BBCAnalyticsSessionManager {
                     if let event = queue.dequeue() {
                         synchingQueue.append(event)
                         
-                        let urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-                        var queryItems = [URLQueryItem]()
-                        for data in event.metaData {
-                            let queryItem = URLQueryItem(name: data.name, value: data.value as? String)
-                            queryItems.append(queryItem)
-                        }
-                        
-                        var request = URLRequest(url: (urlComponents?.url)!)
+                        let url = (event.url(baseURL: baseURL))!
+                        var request = URLRequest(url: url)
                         request.httpMethod = "GET"
                         
-                        let operation = PushAnalyticsOperation(session: backgroundSession, request: request, event: event, completion: { (event, data, response, error) -> (Void) in
+                        let operation = PushAnalyticsOperation(session: urlSession, request: request, event: event, completion: { (event, data, response, error) -> (Void) in
                             
                             // assume all went well and remove
                             // in actuality you will want to queue again for retry

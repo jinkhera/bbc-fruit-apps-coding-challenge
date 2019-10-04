@@ -13,7 +13,7 @@ enum EventType: String {
     case display = "display"
 }
 
-typealias EventProperty = (name: String, value: Any)
+typealias EventProperty = (name: String, value: String)
 
 // MARK: - Struct describing the 'Event' protocol
 //
@@ -33,5 +33,20 @@ struct BBCAnalyticsEvent: Event, Equatable {
     // conform to Equatable
     static func ==(lhs: BBCAnalyticsEvent, rhs: BBCAnalyticsEvent) -> Bool {
         return lhs.event == rhs.event && lhs.date == rhs.date
+    }
+}
+
+extension BBCAnalyticsEvent {
+    func url(baseURL: URL) -> URL? {
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem(name: "event", value: self.event.rawValue))
+        for data in self.metaData {
+            let queryItem = URLQueryItem(name: data.name, value: data.value)
+            queryItems.append(queryItem)
+        }
+        urlComponents?.queryItems = queryItems
+        
+        return urlComponents?.url
     }
 }
