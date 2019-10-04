@@ -14,11 +14,18 @@ class HeadlinesTableViewController: UITableViewController {
     var datasource: HeadlinesDatasource?
     var delegate: HeadlinesTableViewDelegate?
     
+    lazy var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        refreshControl?.addTarget(self, action: #selector(reloadTableView(sender:)), for: .valueChanged)
+        
         datasource = HeadlinesDatasource(tableView: self.tableView, headlines: [Headline]())
         delegate = HeadlinesTableViewDelegate(tableView: self.tableView, headlines: [Headline]())
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
         
         refresh()
     }
@@ -38,7 +45,26 @@ class HeadlinesTableViewController: UITableViewController {
     }
     */
     
+    // MARK: - show/hide activity indicators
+    /// Hides activity indicator.
+    func hideActivityIndicator() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        navigationItem.rightBarButtonItem = nil
+    }
     
+    /// Temporarily shows an activity indicator.
+    func showActivityIndicator() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    // MARK: - pull to refresh
+    @objc func reloadTableView(sender: UIRefreshControl) {
+        self.refresh()
+        refreshControl?.endRefreshing()
+        tableView.reloadData()
+    }
     
     // MARK: - load headlines
     private func refresh() {
@@ -46,8 +72,7 @@ class HeadlinesTableViewController: UITableViewController {
     }
     
     private func loadHeadlines() {
-//        self.asynTaskActive = true
-//        self.showActivityIndicator()
+        self.showActivityIndicator()
         
         let message = NSLocalizedString("Checking for news headlines", comment: "Checking for news headlines")
         self.setBackgroundMessage(message)
@@ -64,6 +89,7 @@ class HeadlinesTableViewController: UITableViewController {
                     self.datasource?.update(headlines: (headlines?.headlines)!)
                     self.tableView.reloadData()
                 }
+                self.hideActivityIndicator()
                 self.tableView.reloadData()
             }
         }
