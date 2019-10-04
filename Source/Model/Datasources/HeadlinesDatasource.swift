@@ -33,7 +33,9 @@ class HeadlinesDatasource: NSObject, UITableViewDataSource {
     // MARK: - update datasource
     func update(headlines: [Headline]) {
         self.headlines.removeAll()
-        self.headlines = headlines
+        self.headlines = headlines.sorted(by: { (a, b) -> Bool in
+            a.updated > b.updated
+        })
     }
     
     // MARK: - UITableViewDataSource
