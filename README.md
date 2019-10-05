@@ -26,6 +26,7 @@ Unit tests: BBC News AppTests
 * Check for internet connectivity using NWPathMonitor(Swift 5) or Reachability Class
 * Would have loved to use SwiftUI
 * UI/UX could be better but the app serves the purpose to read the article
+* Implement some kind of exponential-back-off for retrying failed analytics requests
 
 ## Built With
 
