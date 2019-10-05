@@ -27,9 +27,6 @@ Unit tests: BBC News AppTests
 * Would have loved to use SwiftUI
 * UI/UX could be better but the app serves the purpose to read the article
 
-The whole schema is beyond the scope of this README but below is the subset of the schema used by the application.
-
-
 ## Built With
 
 * [Xcode](https://developer.apple.com/xcode/) - IDE
