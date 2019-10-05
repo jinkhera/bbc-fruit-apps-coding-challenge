@@ -12,7 +12,7 @@ Xcode 9.0
 
 ### Running the app
 
-iOS Device running iOS > 11.0
+iOS Device running iOS >= 11.0
 
 ## Running the tests
 
