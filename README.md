@@ -1,6 +1,8 @@
 # bbc-news-apps-coding-challenge
 
-Universal iOS app for reading BBC News. Writen for iOS 11 using Swift 4. (Due to the age of my laptop I couldn't use the latest Xcode and Swift)
+Universal iOS app for reading BBC News. Writen for iOS 11 using Swift 4. (Due to the age of my laptop I couldn't use the latest Xcode and Swift). 
+
+Software architecture: **MVC**
 
 ## Getting Started
 
@@ -18,7 +20,7 @@ iOS Device running iOS >= 11.0
 
 Unit tests: BBC News AppTests
 
-## If I could do it again I would:....
+## If I could do it again I would....
 
 * Use Xcode 11 and Swift 5
 * Implement persistance such as CoreData and use a NSFetchResultController with a TableView. 
