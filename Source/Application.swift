@@ -1,6 +1,6 @@
 //
 //  Application.swift
-//  BBC News AppTests
+//  BBC Fruits AppTests
 //
 //  Created by Jatinder Pal Singh Khera on 02/10/2019.
 //  Copyright © 2019 Jatinder Pal Singh Khera. All rights reserved.

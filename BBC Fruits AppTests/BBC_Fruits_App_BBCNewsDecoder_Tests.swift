@@ -1,15 +1,15 @@
 //
-//  BBC_News_App_BBCNewsDecoder_Tests.swift
-//  BBC News AppTests
+//  BBC_Fruits_App_BBCNewsDecoder_Tests.swift
+//  BBC Fruits AppTests
 //
 //  Created by Jatinder Pal Singh Khera on 03/10/2019.
 //  Copyright © 2019 Jatinder Pal Singh Khera. All rights reserved.
 //
 
 import XCTest
-@testable import BBC_News_App
+@testable import BBC_Fruits_App
 
-class BBC_News_App_BBCNewsDecoder_Tests: XCTestCase {
+class BBC_Fruits_App_BBCNewsDecoder_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -1,15 +1,15 @@
 //
-//  BBC_News_App_DateFormatter_Tests.swift
-//  BBC News AppTests
+//  BBC_Fruits_App_DateFormatter_Tests.swift
+//  BBC Fruits AppTests
 //
 //  Created by Jatinder Pal Singh Khera on 03/10/2019.
 //  Copyright © 2019 Jatinder Pal Singh Khera. All rights reserved.
 //
 
 import XCTest
-@testable import BBC_News_App
+@testable import BBC_Fruits_App
 
-class BBC_News_App_DateFormatter_Tests: XCTestCase {
+class BBC_Fruits_App_DateFormatter_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -26,7 +26,7 @@ class BBC_News_App_DateFormatter_Tests: XCTestCase {
         // -1489653159 (18 October 1922 date BBC founded)
         let timeFromEpoch = TimeInterval(-1489653159)
         let date = Date(timeIntervalSince1970: timeFromEpoch)
-        let formattedDate = Application.DateFormatters.defaultDateFormatter().string(from: date)
+        let formattedDate = DateFormatter.ddMMMMyyyy.string(from: date)
         
         let expected = "18 October 1922"
         let result = formattedDate
