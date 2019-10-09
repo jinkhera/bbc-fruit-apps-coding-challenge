@@ -36,7 +36,7 @@ class BBCAnalyticsSessionManager {
     
     // MARK: - Initialisation
     private init() {
-        self.baseURL = URL(string: Application.Configuration.baseURL(path: "analytics"))!
+        self.baseURL = URL(string: Application.Configuration.baseURL(path: "stats"))!
         operationQueue.maxConcurrentOperationCount = 1
     }
     

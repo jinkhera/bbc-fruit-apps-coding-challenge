@@ -21,15 +21,14 @@ class BBC_Fruits_App_Model_Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testConstructHeadline() {
-        let title = "Welcome to the BBC"
-        // -1489653159 (18 October 1922 date BBC founded)
-        let date = Date(timeIntervalSince1970: -1489653159)
-        let introduction = "The BBC was founded on this date"
-        let headline = Headline(headline: title, updated: date, introduction: introduction)
+    func testConstructFruit() {
+        let type = "apple"
+        let price = 149.0
+        let weight = 120.0
+        let fruit = Fruit(type: type, price: price, weight: weight)
         
-        let expected = "\(title) : 18 October 1922"
-        let result = headline.description
+        let expected = "\(type) : \(price) : \(weight)"
+        let result = fruit.description
         print(result)
         XCTAssert(expected == result, "Test failed: tell me what you want")
     }

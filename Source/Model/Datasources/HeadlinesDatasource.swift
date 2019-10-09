@@ -1,5 +1,5 @@
 //
-//  HeadlinesDatasource.swift
+//  FruitDatasource.swift
 //  BBC Fruits App
 //
 //  Created by Jatinder Pal Singh Khera on 04/10/2019.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class HeadlinesDatasource: NSObject, UITableViewDataSource {
+class FruitDatasource: NSObject, UITableViewDataSource {
     // MARK: - Types
     
     struct CellIdentifiers {
-        static let headlines = "headlinesTableViewCell"
+        static let fruit = "fruitTableViewCell"
     }
     
     // MARK: - vars
-    var headlines = [Headline]()
+    var data = [Fruit]()
     
     // MARK: initialiser
-    required init(tableView: UITableView, headlines: [Headline]) {
+    required init(tableView: UITableView, fruit: [Fruit]) {
         super.init()
-        self.headlines = headlines
+        self.data = fruit
         configure(tableView: tableView)
     }
     
@@ -31,23 +31,22 @@ class HeadlinesDatasource: NSObject, UITableViewDataSource {
     }
     
     // MARK: - update datasource
-    func update(headlines: [Headline]) {
-        self.headlines.removeAll()
-        self.headlines = headlines.sorted(by: { (a, b) -> Bool in
-            a.updated > b.updated
+    func update(data: [Fruit]) {
+        self.data.removeAll()
+        self.data = data.sorted(by: { (a, b) -> Bool in
+            a.type > b.type
         })
     }
     
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.headlines.count
+        return self.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.headlines, for: indexPath)
-        let headline = headlines[indexPath.row]
-        cell.textLabel?.text = headline.headline
-        cell.detailTextLabel?.text = headline.formattedDate
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.fruit, for: indexPath)
+        let fruit = data[indexPath.row]
+        cell.textLabel?.text = fruit.description
         return cell
     }
 }

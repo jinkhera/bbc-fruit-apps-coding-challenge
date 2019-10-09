@@ -1,5 +1,5 @@
 //
-//  HeadlineDetailsViewController.swift
+//  FruitDetailsViewController.swift
 //  BBC Fruits App
 //
 //  Created by Jatinder Pal Singh Khera on 04/10/2019.
@@ -8,27 +8,24 @@
 
 import UIKit
 
-class HeadlineDetailsViewController: UIViewController {
+class FruitDetailsViewController: UIViewController {
     
     // MARK: - vars
     @IBOutlet weak var textView: UITextView!
     
-    var headline: Headline?
+    var fruit: Fruit?
     
     // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let title = (self.headline?.headline)!
-        let introduction = (self.headline?.introduction)!
-        textView.text = "\(title) \n\n\(introduction)"
-        navigationItem.title = headline?.formattedDate
+        navigationItem.title = fruit?.type
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let property = EventProperty(name: "display", value: "HeadlineDetails")
-        let info = EventProperty(name: "headline", value: headline?.headline ?? "Unknown")
+        let property = EventProperty(name: "display", value: "FruitDetails")
+        let info = EventProperty(name: "fruit", value: fruit?.type ?? "Unknown")
         BBCAnalytics.trackEvent(event: .display, metaData: [property, info])
     }
     

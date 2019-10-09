@@ -1,5 +1,5 @@
 //
-//  HeadlinesTableViewDelegate.swift
+//  FruitViewDelegate.swift
 //  BBC Fruits App
 //
 //  Created by Jatinder Pal Singh Khera on 04/10/2019.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-protocol HeadlinesTableViewControllerDelegate {
-    func didSelectHeadline(_ headineline: Headline, atIndex index: IndexPath)
+protocol FruitTableViewControllerDelegate {
+    func didSelectFruit(_ fruit: Fruit, atIndex index: IndexPath)
 }
 
-class HeadlinesTableViewDelegate: NSObject, UITableViewDelegate {
+class FruitTableViewDelegate: NSObject, UITableViewDelegate {
     // MARK: - vars
-    var headlines = [Headline]()
+    var data = [Fruit]()
     
-    var delegate: HeadlinesTableViewControllerDelegate?
+    var delegate: FruitTableViewControllerDelegate?
     
     // MARK: initialiser
-    required init(tableView: UITableView, headlines: [Headline]) {
+    required init(tableView: UITableView, data: [Fruit]) {
         super.init()
-        self.headlines = headlines
+        self.data = data
         self.configure(tableView: tableView)
     }
     
@@ -31,16 +31,16 @@ class HeadlinesTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     // MARK: - update datasource
-    func update(headlines: [Headline]) {
-        self.headlines.removeAll()
-        self.headlines = headlines.sorted(by: { (a, b) -> Bool in
-            a.updated > b.updated
+    func update(data: [Fruit]) {
+        self.data.removeAll()
+        self.data = data.sorted(by: { (a, b) -> Bool in
+            a.type > b.type
         })
     }
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let headline = headlines[indexPath.row]
-        delegate?.didSelectHeadline(headline, atIndex: indexPath)
+        let fruit = data[indexPath.row]
+        delegate?.didSelectFruit(fruit, atIndex: indexPath)
     }
 }

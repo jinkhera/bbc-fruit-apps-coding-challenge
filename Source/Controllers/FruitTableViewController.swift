@@ -1,5 +1,5 @@
 //
-//  HeadlinesTableViewController.swift
+//  FruitTableViewController.swift
 //  BBC Fruits App
 //
 //  Created by Jatinder Pal Singh Khera on 04/10/2019.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class HeadlinesTableViewController: UITableViewController, HeadlinesTableViewControllerDelegate {
+class FruitTableViewController: UITableViewController, FruitTableViewControllerDelegate {
     // MARK: - Types
     
     struct SegueIdentifiers {
-        static let showHeadlineDetails = "showHeadlineDetailsSegue"
+        static let showFruitDetails = "showFruitDetailsSegue"
     }
     
     // MARK: - vars
-    var datasource: HeadlinesDatasource?
-    var delegate: HeadlinesTableViewDelegate?
+    var datasource: FruitDatasource?
+    var delegate: FruitTableViewDelegate?
     
     lazy var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
@@ -27,8 +27,8 @@ class HeadlinesTableViewController: UITableViewController, HeadlinesTableViewCon
         
         refreshControl?.addTarget(self, action: #selector(reloadTableView(sender:)), for: .valueChanged)
         
-        datasource = HeadlinesDatasource(tableView: self.tableView, headlines: [Headline]())
-        delegate = HeadlinesTableViewDelegate(tableView: self.tableView, headlines: [Headline]())
+        datasource = FruitDatasource(tableView: self.tableView, fruit: [Fruit]())
+        delegate = FruitTableViewDelegate(tableView: self.tableView, data: [Fruit]())
         delegate?.delegate = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -59,10 +59,10 @@ class HeadlinesTableViewController: UITableViewController, HeadlinesTableViewCon
         }
         
         switch identifier {
-        case SegueIdentifiers.showHeadlineDetails:
-            if let destination = segue.intendedDestinationViewController as? HeadlineDetailsViewController {
-                if let headline = sender as? Headline {
-                    destination.headline = headline
+        case SegueIdentifiers.showFruitDetails:
+            if let destination = segue.intendedDestinationViewController as? FruitDetailsViewController {
+                if let fruit = sender as? Fruit {
+                    destination.fruit = fruit
                 }
             }
         default:
@@ -103,7 +103,7 @@ class HeadlinesTableViewController: UITableViewController, HeadlinesTableViewCon
         self.setBackgroundMessage(message)
         self.tableView.reloadData()
         
-        BBCNews.loadHeadlines { (headlines, error) in
+        BBCFruits.loadFruits { (fruits, error) in
             // because it's the UI thread the GODS insist to do unto the main thread, meh
             DispatchQueue.main.async {
                 if error != nil {
@@ -111,8 +111,8 @@ class HeadlinesTableViewController: UITableViewController, HeadlinesTableViewCon
                     self.setBackgroundMessage(message)
                 }
                 else  {
-                    self.datasource?.update(headlines: (headlines?.headlines)!)
-                    self.delegate?.update(headlines: (headlines?.headlines)!)
+                    self.datasource?.update(data: (fruits?.fruit)!)
+                    self.delegate?.update(data: (fruits?.fruit)!)
                     self.tableView.reloadData()
                 }
                 self.hideActivityIndicator()
@@ -121,8 +121,8 @@ class HeadlinesTableViewController: UITableViewController, HeadlinesTableViewCon
         }
     }
     
-    // MARK: - HeadlinesTableViewControllerDelegate
-    func didSelectHeadline(_ headineline: Headline, atIndex index: IndexPath) {
-        self.performSegue(withIdentifier: SegueIdentifiers.showHeadlineDetails, sender: headineline)
+    // MARK: - FruitTableViewControllerDelegate
+    func didSelectFruit(_ fruit: Fruit, atIndex index: IndexPath) {
+        self.performSegue(withIdentifier: SegueIdentifiers.showFruitDetails, sender: fruit)
     }
 }

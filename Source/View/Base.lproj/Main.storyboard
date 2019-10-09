@@ -13,14 +13,14 @@
         <!--BBC Headlines-->
         <scene sceneID="yJm-Jw-gWv">
             <objects>
-                <tableViewController id="bkZ-U5-Lxj" customClass="HeadlinesTableViewController" customModule="BBC_News_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bkZ-U5-Lxj" customClass="FruitTableViewController" customModule="BBC_Fruits_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="LTc-kb-XSf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" name="PrimaryColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="headlinesTableViewCell" textLabel="WUj-By-IPi" detailTextLabel="Fir-Qu-SCs" style="IBUITableViewCellStyleSubtitle" id="sRq-xE-ipp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="fruitTableViewCell" textLabel="WUj-By-IPi" detailTextLabel="Fir-Qu-SCs" style="IBUITableViewCellStyleSubtitle" id="sRq-xE-ipp">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sRq-xE-ipp" id="GjN-Qf-QFc">
@@ -52,20 +52,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="BBC Headlines" id="kfd-Q3-m9C"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="6eE-W9-jcv">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <segue destination="mNw-Np-qFW" kind="show" identifier="showHeadlineDetailsSegue" id="JXJ-T6-ccP"/>
+                        <segue destination="mNw-Np-qFW" kind="show" identifier="showFruitDetailsSegue" id="JXJ-T6-ccP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rb1-3B-Js3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-60" y="213"/>
         </scene>
-        <!--Headline Details View Controller-->
+        <!--Fruit Details View Controller-->
         <scene sceneID="D7C-kF-SmN">
             <objects>
-                <viewController id="mNw-Np-qFW" customClass="HeadlineDetailsViewController" customModule="BBC_News_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mNw-Np-qFW" customClass="FruitDetailsViewController" customModule="BBC_Fruits_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qKF-tB-rmH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

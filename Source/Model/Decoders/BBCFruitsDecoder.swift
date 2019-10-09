@@ -1,5 +1,5 @@
 //
-//  BBCNewsDecoder.swift
+//  BBCFruitsDecoder.swift
 //  BBC Fruits App
 //
 //  Created by Jatinder Pal Singh Khera on 03/10/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BBCNewsDecoder {
+struct BBCFruitsDecoder {
     static func decodeJSON<T: Decodable>(data: Data, type: T.Type) throws -> T? {
         let decoder = JSONDecoder()
         do {

@@ -44,9 +44,9 @@ extension Application {
         static func baseURL(path: String) -> String {
             switch (Configuration.appConfiguration) {
             case .Debug:
-                return "https://raw.githubusercontent.com/bbc/news-apps-coding-challenge/master/\(path)"
+                return "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/\(path)"
             default:
-                return "https://raw.githubusercontent.com/bbc/news-apps-coding-challenge/master/\(path)"
+                return "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/\(path)"
             }
         }
         

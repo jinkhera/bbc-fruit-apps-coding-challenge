@@ -30,7 +30,7 @@ class BBC_Fruits_App_BBCAnalytics_Tests: XCTestCase {
         
         let url = event.url(baseURL: baseURL)
         let result = url?.absoluteString
-        let expected = "https://raw.githubusercontent.com/bbc/news-apps-coding-challenge/master/analytics?event=load&time=123"
+        let expected = "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/stats?event=load&time=123"
         
         XCTAssert(expected == result, "Test failed: tell me what you want")
     }

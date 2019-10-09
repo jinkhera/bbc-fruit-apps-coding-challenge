@@ -1,5 +1,5 @@
 //
-//  BBCNewsAPI.swift
+//  BBCFruitsAPI.swift
 //  BBC Fruits App
 //
 //  Created by Jatinder Pal Singh Khera on 03/10/2019.
@@ -26,12 +26,12 @@ public enum APIError: Error, CustomStringConvertible {
     }
 }
 
-struct BBCNewsAPI {
+struct BBCFruitsAPI {
     
 }
 
 // MARK: - Headlines endpoint
-extension BBCNewsAPI {
+extension BBCFruitsAPI {
     static func get<T: Decodable>(endpoint: String, type: T.Type, _ completion: @escaping (T?, APIError?) -> ()) {
         guard let url = URL(string: Application.Configuration.baseURL(path: endpoint)) else {
             completion(nil, APIError.generic("Invalid API"))
@@ -46,7 +46,7 @@ extension BBCNewsAPI {
 //                    let a = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
 //                    print("\(a)")
                     
-                    let decodedObjects = try BBCNewsDecoder.decodeJSON(data: data!, type: T.self)
+                    let decodedObjects = try BBCFruitsDecoder.decodeJSON(data: data!, type: T.self)
                     completion(decodedObjects, nil)
                 } catch let decodeError {
                     completion(nil, decodeError as? APIError)
