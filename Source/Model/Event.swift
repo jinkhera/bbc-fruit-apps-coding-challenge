@@ -11,6 +11,7 @@ import Foundation
 enum EventType: String {
     case load = "load"
     case display = "display"
+    case error = "error"
 }
 
 typealias EventProperty = (name: String, value: String)

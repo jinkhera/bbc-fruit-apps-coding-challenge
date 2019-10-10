@@ -31,8 +31,7 @@ extension Networking {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
             let requestStartTime = Date()
-            
-            
+
             let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 let timeTakenForRequest = Date().timeIntervalSince(requestStartTime)
                 let ms = timeTakenForRequest * 1000
@@ -45,6 +44,8 @@ extension Networking {
                 if statusCode != 200 {
                     let string = String(data: data!, encoding: .utf8)
                     completion(nil, APIError.generic("Server error \(String(describing: string))"))
+                    let property = EventProperty(name: "api-stausCode", value: "\(statusCode)")
+                    BBCAnalytics.trackEvent(event: .error, metaData: [property])
                     return
                 }
                 
