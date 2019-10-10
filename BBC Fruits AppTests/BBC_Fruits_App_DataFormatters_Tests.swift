@@ -1,15 +1,15 @@
 //
-//  BBC_Fruits_App_DateFormatter_Tests.swift
+//  BBC_Fruits_App_DataFormatters_Tests.swift
 //  BBC Fruits AppTests
 //
-//  Created by Jatinder Pal Singh Khera on 03/10/2019.
+//  Created by Jatinder Pal Singh Khera on 10/10/2019.
 //  Copyright © 2019 Jatinder Pal Singh Khera. All rights reserved.
 //
 
 import XCTest
 @testable import BBC_Fruits_App
 
-class BBC_Fruits_App_DateFormatter_Tests: XCTestCase {
+class BBC_Fruits_App_DataFormatters_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,15 +21,14 @@ class BBC_Fruits_App_DateFormatter_Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testConstructHeadline() {
+    func testMassFormatter() {
+        let type = "apple"
+        let price = 149.0
+        let weight = 120.0
+        let fruit = Fruit(type: type, price: price, weight: weight)
         
-        // -1489653159 (18 October 1922 date BBC founded)
-        let timeFromEpoch = TimeInterval(-1489653159)
-        let date = Date(timeIntervalSince1970: timeFromEpoch)
-        let formattedDate = DateFormatter.ddMMMMyyyy.string(from: date)
-        
-        let expected = "18 October 1922"
-        let result = formattedDate
+        let expected = "0.12 kg"
+        let result = fruit.localisedWeight
         print(result)
         XCTAssert(expected == result, "Test failed: tell me what you want")
     }

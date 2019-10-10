@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		650C1E84234E2FDB001882B9 /* BBC_Fruits_App_BBCAnalytics_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C1E82234E2E48001882B9 /* BBC_Fruits_App_BBCAnalytics_Tests.swift */; };
-		650C1E85234E2FDB001882B9 /* BBC_Fruits_App_BBCNewsAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C1E7F234E2E47001882B9 /* BBC_Fruits_App_BBCNewsAPI_Tests.swift */; };
+		650C1E85234E2FDB001882B9 /* BBC_Fruits_App_BBCFruitsAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C1E7F234E2E47001882B9 /* BBC_Fruits_App_BBCFruitsAPI_Tests.swift */; };
 		650C1E86234E2FDB001882B9 /* BBC_Fruits_App_BBCNewsDecoder_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C1E83234E2E48001882B9 /* BBC_Fruits_App_BBCNewsDecoder_Tests.swift */; };
-		650C1E87234E2FDB001882B9 /* BBC_Fruits_App_DateFormatter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C1E81234E2E48001882B9 /* BBC_Fruits_App_DateFormatter_Tests.swift */; };
 		650C1E88234E2FDB001882B9 /* BBC_Fruits_App_Model_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C1E80234E2E47001882B9 /* BBC_Fruits_App_Model_Tests.swift */; };
 		6532CFAD2344EBAA0006B052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532CFAC2344EBAA0006B052 /* AppDelegate.swift */; };
 		6532CFB22344EBAA0006B052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6532CFB02344EBAA0006B052 /* Main.storyboard */; };
@@ -21,15 +20,16 @@
 		6532CFD42344F5B20006B052 /* BBCAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532CFD32344F5B10006B052 /* BBCAnalytics.swift */; };
 		6532CFD82344FB2C0006B052 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532CFD72344FB2C0006B052 /* Application.swift */; };
 		6532CFD92344FDFC0006B052 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532CFD72344FB2C0006B052 /* Application.swift */; };
+		65338ACB234F51190045C22C /* MassFormatter+Convinience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65338ACA234F51190045C22C /* MassFormatter+Convinience.swift */; };
+		65338ACD234F52400045C22C /* BBC_Fruits_App_DataFormatters_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65338ACC234F52400045C22C /* BBC_Fruits_App_DataFormatters_Tests.swift */; };
 		653C9BA2234628B70007B147 /* BBCFruitsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C9BA1234628B70007B147 /* BBCFruitsAPI.swift */; };
 		653C9BA523462B950007B147 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C9BA423462B950007B147 /* Networking.swift */; };
 		653C9BA7234635650007B147 /* BBCFruits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C9BA6234635650007B147 /* BBCFruits.swift */; };
 		653C9BAB23463B070007B147 /* BBCFruitsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C9BAA23463B070007B147 /* BBCFruitsDecoder.swift */; };
 		65747C1023478D9B00377D6D /* FruitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C0F23478D9B00377D6D /* FruitTableViewController.swift */; };
-		65747C1423478F5600377D6D /* HeadlinesDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C1323478F5600377D6D /* HeadlinesDatasource.swift */; };
-		65747C162347924300377D6D /* HeadlinesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */; };
+		65747C1423478F5600377D6D /* FruitDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C1323478F5600377D6D /* FruitDatasource.swift */; };
+		65747C162347924300377D6D /* FruitTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C152347924300377D6D /* FruitTableViewControllerDelegate.swift */; };
 		65747C19234794E900377D6D /* UITableViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65747C18234794E900377D6D /* UITableViewController+Background.swift */; };
-		65B8909B2347A95400A299E6 /* DateFormatter+Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8909A2347A95400A299E6 /* DateFormatter+Formatters.swift */; };
 		65B8909D2347B77F00A299E6 /* FruitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8909C2347B77F00A299E6 /* FruitDetailsViewController.swift */; };
 		65B8909F2347BA8B00A299E6 /* UIStoryboardSegue+Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8909E2347BA8B00A299E6 /* UIStoryboardSegue+Destination.swift */; };
 /* End PBXBuildFile section */
@@ -45,9 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		650C1E7F234E2E47001882B9 /* BBC_Fruits_App_BBCNewsAPI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_Fruits_App_BBCNewsAPI_Tests.swift; sourceTree = "<group>"; };
+		650C1E7F234E2E47001882B9 /* BBC_Fruits_App_BBCFruitsAPI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_Fruits_App_BBCFruitsAPI_Tests.swift; sourceTree = "<group>"; };
 		650C1E80234E2E47001882B9 /* BBC_Fruits_App_Model_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_Fruits_App_Model_Tests.swift; sourceTree = "<group>"; };
-		650C1E81234E2E48001882B9 /* BBC_Fruits_App_DateFormatter_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_Fruits_App_DateFormatter_Tests.swift; sourceTree = "<group>"; };
 		650C1E82234E2E48001882B9 /* BBC_Fruits_App_BBCAnalytics_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_Fruits_App_BBCAnalytics_Tests.swift; sourceTree = "<group>"; };
 		650C1E83234E2E48001882B9 /* BBC_Fruits_App_BBCNewsDecoder_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_Fruits_App_BBCNewsDecoder_Tests.swift; sourceTree = "<group>"; };
 		6532CFA92344EBA90006B052 /* BBC Fruits App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BBC Fruits App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,15 +61,16 @@
 		6532CFD12344F2500006B052 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		6532CFD32344F5B10006B052 /* BBCAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBCAnalytics.swift; sourceTree = "<group>"; };
 		6532CFD72344FB2C0006B052 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		65338ACA234F51190045C22C /* MassFormatter+Convinience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MassFormatter+Convinience.swift"; sourceTree = "<group>"; };
+		65338ACC234F52400045C22C /* BBC_Fruits_App_DataFormatters_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBC_Fruits_App_DataFormatters_Tests.swift; sourceTree = "<group>"; };
 		653C9BA1234628B70007B147 /* BBCFruitsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBCFruitsAPI.swift; sourceTree = "<group>"; };
 		653C9BA423462B950007B147 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		653C9BA6234635650007B147 /* BBCFruits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBCFruits.swift; sourceTree = "<group>"; };
 		653C9BAA23463B070007B147 /* BBCFruitsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBCFruitsDecoder.swift; sourceTree = "<group>"; };
 		65747C0F23478D9B00377D6D /* FruitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTableViewController.swift; sourceTree = "<group>"; };
-		65747C1323478F5600377D6D /* HeadlinesDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesDatasource.swift; sourceTree = "<group>"; };
-		65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewDelegate.swift; sourceTree = "<group>"; };
+		65747C1323478F5600377D6D /* FruitDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDatasource.swift; sourceTree = "<group>"; };
+		65747C152347924300377D6D /* FruitTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		65747C18234794E900377D6D /* UITableViewController+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Background.swift"; sourceTree = "<group>"; };
-		65B8909A2347A95400A299E6 /* DateFormatter+Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formatters.swift"; sourceTree = "<group>"; };
 		65B8909C2347B77F00A299E6 /* FruitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailsViewController.swift; sourceTree = "<group>"; };
 		65B8909E2347BA8B00A299E6 /* UIStoryboardSegue+Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+Destination.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,10 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				650C1E82234E2E48001882B9 /* BBC_Fruits_App_BBCAnalytics_Tests.swift */,
-				650C1E7F234E2E47001882B9 /* BBC_Fruits_App_BBCNewsAPI_Tests.swift */,
+				650C1E7F234E2E47001882B9 /* BBC_Fruits_App_BBCFruitsAPI_Tests.swift */,
 				650C1E83234E2E48001882B9 /* BBC_Fruits_App_BBCNewsDecoder_Tests.swift */,
-				650C1E81234E2E48001882B9 /* BBC_Fruits_App_DateFormatter_Tests.swift */,
 				650C1E80234E2E47001882B9 /* BBC_Fruits_App_Model_Tests.swift */,
+				65338ACC234F52400045C22C /* BBC_Fruits_App_DataFormatters_Tests.swift */,
 				6532CFC32344EBAA0006B052 /* Info.plist */,
 			);
 			path = "BBC Fruits AppTests";
@@ -199,8 +199,8 @@
 		65747C1123478ED000377D6D /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
-				65747C1323478F5600377D6D /* HeadlinesDatasource.swift */,
-				65747C152347924300377D6D /* HeadlinesTableViewDelegate.swift */,
+				65747C1323478F5600377D6D /* FruitDatasource.swift */,
+				65747C152347924300377D6D /* FruitTableViewControllerDelegate.swift */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -209,8 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				65747C18234794E900377D6D /* UITableViewController+Background.swift */,
-				65B8909A2347A95400A299E6 /* DateFormatter+Formatters.swift */,
 				65B8909E2347BA8B00A299E6 /* UIStoryboardSegue+Destination.swift */,
+				65338ACA234F51190045C22C /* MassFormatter+Convinience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,14 +326,14 @@
 				653C9BA523462B950007B147 /* Networking.swift in Sources */,
 				65747C1023478D9B00377D6D /* FruitTableViewController.swift in Sources */,
 				653C9BA2234628B70007B147 /* BBCFruitsAPI.swift in Sources */,
-				65747C1423478F5600377D6D /* HeadlinesDatasource.swift in Sources */,
-				65747C162347924300377D6D /* HeadlinesTableViewDelegate.swift in Sources */,
+				65747C1423478F5600377D6D /* FruitDatasource.swift in Sources */,
+				65747C162347924300377D6D /* FruitTableViewControllerDelegate.swift in Sources */,
 				6532CFAD2344EBAA0006B052 /* AppDelegate.swift in Sources */,
 				65B8909D2347B77F00A299E6 /* FruitDetailsViewController.swift in Sources */,
 				65747C19234794E900377D6D /* UITableViewController+Background.swift in Sources */,
 				6532CFD02344EFDC0006B052 /* Fruit.swift in Sources */,
+				65338ACB234F51190045C22C /* MassFormatter+Convinience.swift in Sources */,
 				653C9BAB23463B070007B147 /* BBCFruitsDecoder.swift in Sources */,
-				65B8909B2347A95400A299E6 /* DateFormatter+Formatters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +342,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				650C1E88234E2FDB001882B9 /* BBC_Fruits_App_Model_Tests.swift in Sources */,
-				650C1E87234E2FDB001882B9 /* BBC_Fruits_App_DateFormatter_Tests.swift in Sources */,
+				65338ACD234F52400045C22C /* BBC_Fruits_App_DataFormatters_Tests.swift in Sources */,
 				6532CFD82344FB2C0006B052 /* Application.swift in Sources */,
-				650C1E85234E2FDB001882B9 /* BBC_Fruits_App_BBCNewsAPI_Tests.swift in Sources */,
+				650C1E85234E2FDB001882B9 /* BBC_Fruits_App_BBCFruitsAPI_Tests.swift in Sources */,
 				650C1E86234E2FDB001882B9 /* BBC_Fruits_App_BBCNewsDecoder_Tests.swift in Sources */,
 				650C1E84234E2FDB001882B9 /* BBC_Fruits_App_BBCAnalytics_Tests.swift in Sources */,
 			);

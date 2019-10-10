@@ -9,7 +9,7 @@
 import XCTest
 @testable import BBC_Fruits_App
 
-class BBC_Fruits_App_BBCNewsAPI_Tests: XCTestCase {
+class BBC_Fruits_App_BBCFruitsAPI_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,9 +21,9 @@ class BBC_Fruits_App_BBCNewsAPI_Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testDownloadHeadlines() {
+    func testDownloadFruit() {
         // Create an expectation for a API call.
-        let expectation = XCTestExpectation(description: "Fetch headlines")
+        let expectation = XCTestExpectation(description: "Fetch fruit")
         
         BBCFruits.loadFruits { (fruits, error) in
             if error != nil {

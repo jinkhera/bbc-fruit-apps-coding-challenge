@@ -38,7 +38,7 @@ class FruitTableViewController: UITableViewController, FruitTableViewControllerD
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let property = EventProperty(name: "display", value: "Headlines")
+        let property = EventProperty(name: "display", value: "Fruits")
         BBCAnalytics.trackEvent(event: .display, metaData: [property])
     }
 

@@ -46,7 +46,7 @@ class FruitDatasource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.fruit, for: indexPath)
         let fruit = data[indexPath.row]
-        cell.textLabel?.text = fruit.description
+        cell.textLabel?.text = fruit.type
         return cell
     }
 }

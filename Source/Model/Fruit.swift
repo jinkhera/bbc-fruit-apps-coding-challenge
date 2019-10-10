@@ -19,7 +19,7 @@ struct Fruit: CustomStringConvertible {
     
     // MARK: -
     var description: String {
-        return "\(type) : price \(price) : weight \(weight)"
+        return "\(type) : price \(price) : weight \(localisedWeight)"
     }
     
     // MARK: - initialiser
@@ -42,6 +42,20 @@ extension Fruit: Decodable {
         type = try container.decode(String.self, forKey: .type)
         price = try container.decode(Double.self, forKey: .price)
         weight = try container.decode(Double.self, forKey: .weight)
+    }
+}
+
+extension Fruit {
+    var localisedWeight: String {
+        get {
+            return MassFormatter.kgs.string(fromValue: self.weight / 1000, unit: .kilogram)
+        }
+    }
+    
+    var localisedPrice: String {
+        get {
+            return ""
+        }
     }
 }
 

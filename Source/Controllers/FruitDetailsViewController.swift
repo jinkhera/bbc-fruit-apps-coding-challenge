@@ -21,6 +21,8 @@ class FruitDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.title = fruit?.type
+        
+        textView.text = fruit?.description
     }
     
     override func viewDidAppear(_ animated: Bool) {
