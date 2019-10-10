@@ -32,4 +32,16 @@ class BBC_Fruits_App_DataFormatters_Tests: XCTestCase {
         print(result)
         XCTAssert(expected == result, "Test failed: tell me what you want")
     }
+    
+    func testCurrencyFormatter() {
+        let type = "apple"
+        let price = 149.0
+        let weight = 120.0
+        let fruit = Fruit(type: type, price: price, weight: weight)
+        
+        let expected = "£1.49"
+        let result = fruit.localisedPrice ?? "Unknown"
+        print(result)
+        XCTAssert(expected == result, "Test failed: tell me what you want")
+    }
 }

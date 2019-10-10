@@ -19,7 +19,8 @@ struct Fruit: CustomStringConvertible {
     
     // MARK: -
     var description: String {
-        return "\(type) : price \(price) : weight \(localisedWeight)"
+        let priceDescription = localisedPrice ?? "\(price)"
+        return "\(type) : price \(priceDescription) : weight \(localisedWeight)"
     }
     
     // MARK: - initialiser
@@ -52,9 +53,9 @@ extension Fruit {
         }
     }
     
-    var localisedPrice: String {
+    var localisedPrice: String? {
         get {
-            return ""
+            return NumberFormatter.currencyUK.string(from: NSNumber(value: price / 100))
         }
     }
 }

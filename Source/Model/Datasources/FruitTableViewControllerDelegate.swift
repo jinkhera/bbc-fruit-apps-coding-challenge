@@ -34,7 +34,7 @@ class FruitTableViewDelegate: NSObject, UITableViewDelegate {
     func update(data: [Fruit]) {
         self.data.removeAll()
         self.data = data.sorted(by: { (a, b) -> Bool in
-            a.type > b.type
+            a.type < b.type
         })
     }
     
