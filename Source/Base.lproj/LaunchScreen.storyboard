@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="20g-lO-52u">
-                                <rect key="frame" x="149" y="295" width="76" height="76"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="20g-lO-52u">
+                                <rect key="frame" x="145.5" y="291.5" width="83" height="83"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="PrimaryColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="20g-lO-52u" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7dm-d7-w2f"/>
                             <constraint firstItem="20g-lO-52u" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tVA-dK-02j"/>
@@ -36,9 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch" width="76" height="76"/>
-        <namedColor name="PrimaryColor">
-            <color red="0.6588235294117647" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="LaunchImage" width="83" height="83"/>
     </resources>
 </document>
